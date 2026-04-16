@@ -1,0 +1,5 @@
+cd "C:\Users\95joa\Documents\VS_projects\SogarjoSite"
+git status
+git add .
+git commit -m "Update homepage with logo and new design"
+git push origin main
