@@ -1,29 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sogarjo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sogarjo</title>
     <style>
-        body{
-            font-family: Arial;
-            background:#0f172a;
-            color:white;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            margin:0;
-            text-align:center;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        h1{font-size:60px;margin-bottom:10px;}
-        p{font-size:20px;color:#cbd5e1;}
+
+        body {
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(29, 78, 216, 0.18), transparent 30%),
+                radial-gradient(circle at top right, rgba(16, 185, 129, 0.14), transparent 25%),
+                linear-gradient(135deg, #0b1120 0%, #0f172a 55%, #111827 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 48px 36px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 14px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: clamp(18px, 2.2vw, 24px);
+            color: #cbd5e1;
+            max-width: 780px;
+            margin: 0 auto 22px;
+            line-height: 1.6;
+        }
+
+        .description {
+            max-width: 820px;
+            margin: 0 auto 34px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #94a3b8;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .pill {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .product-card {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 18px;
+            padding: 22px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(147, 197, 253, 0.35);
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        .footer-note {
+            margin-top: 36px;
+            font-size: 13px;
+            color: #64748b;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 640px) {
+            .hero-card {
+                padding: 36px 20px;
+            }
+
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Sogarjo</h1>
-        <p>Life Sciences • AI • Genomics • Software</p>
-    </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-card">
+                <img src="Logo_company.png" alt="Sogarjo logo" class="logo">
+
+                <div class="eyebrow">Sogarjo Group</div>
+
+                <h1>Advanced Health Technology for Precision Medicine</h1>
+
+                <p class="subtitle">
+                    Building a portfolio of scientific software products across genomics,
+                    transcriptomics, and clinical genomic analysis.
+                </p>
+
+                <p class="description">
+                    Sogarjo is a life sciences technology group focused on scalable software
+                    platforms for molecular data interpretation, biomedical analytics, and
+                    next-generation clinical decision support.
+                </p>
+
+                <div class="pill-row">
+                    <div class="pill">Genomics</div>
+                    <div class="pill">Transcriptomics</div>
+                    <div class="pill">Bioinformatics</div>
+                    <div class="pill">Clinical Software</div>
+                    <div class="pill">AI-Driven Analysis</div>
+                </div>
+
+                <div class="products">
+                    <div class="product-card">
+                        <h3>Genomic Analysis Platforms</h3>
+                        <p>
+                            Software for variant interpretation, molecular profiling,
+                            and precision diagnostics in research and clinical settings.
+                        </p>
+                    </div>
+
+                    <div class="product-card">
+                        <h3>Transcriptomics Solutions</h3>
+                        <p>
+                            Tools for RNA sequencing workflows, fusion detection,
+                            expression analysis, and disease subtype classification.
+                        </p>
+                    </div>
+
+                    <div class="product-card">
+                        <h3>Clinical Reporting Software</h3>
+                        <p>
+                            Structured reporting systems that transform complex omics
+                            outputs into clear, decision-ready reports.
+                        </p>
+                    </div>
+
+                    <div class="product-card">
+                        <h3>Health Data Intelligence</h3>
+                        <p>
+                            Integrative platforms that combine molecular, computational,
+                            and AI methods for modern healthcare applications.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-note">
+                    Sogarjo • Life Sciences • Genomics • Transcriptomics • Software
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
