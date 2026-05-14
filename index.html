@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sogarjo</title>
-    <link rel="icon" type="image/png" href="icon_company.png?v=2">
-    <link rel="shortcut icon" type="image/png" href="icon_company.png?v=2">
-    <link rel="apple-touch-icon" href="icon_company.png?v=2">
-    <meta name="description" content="Sogarjo builds life science software, computational healthcare systems, MRD tracking platforms, and scientific infrastructure.">
+    <link rel="icon" type="image/png" href="icon_company.png?v=3">
+    <link rel="shortcut icon" type="image/png" href="icon_company.png?v=3">
+    <link rel="apple-touch-icon" href="icon_company.png?v=3">
+    <meta name="description" content="Sogarjo is building integrated oncology infrastructure from Latin America: software, diagnostics, instruments, therapeutics, and research systems for underserved regions.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
 
@@ -21,20 +21,20 @@
             --bg: #000000;
             --surface: #050506;
             --surface2: #101114;
-            --panel: color-mix(in srgb, var(--surface) 86%, #000000 14%);
+            --surface3: #15171c;
             --border: #1e2229;
             --border2: #2d333d;
             --fg: #ffffff;
-            --fg2: #9ca3b0;
-            --fg3: #505668;
-            --accent-blue: #4fa3d1;
+            --fg2: #a8b0bf;
+            --fg3: #697181;
+            --muted: #505668;
             --accent-teal: #38b2ac;
+            --accent-blue: #4fa3d1;
             --accent-amber: #e8a838;
-            --accent-violet: #8b6cd8;
-            --accent-red: #e05252;
+            --accent-pink: #d4537e;
+            --accent-green: #1d9e75;
             --font-sans: "Geist", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
             --font-mono: "Geist Mono", "Cascadia Code", "Consolas", monospace;
-            --sidebar-w: 78px;
             --max: 1240px;
         }
 
@@ -48,14 +48,9 @@
             font-family: var(--font-sans);
             background-color: var(--bg);
             background-image:
-                linear-gradient(180deg, rgba(79,163,209,0.07) 0, transparent 320px),
-                repeating-linear-gradient(
-                    -45deg,
-                    rgba(255,255,255,0.026) 0,
-                    rgba(255,255,255,0.026) 1px,
-                    transparent 1px,
-                    transparent 13px
-                );
+                linear-gradient(180deg, rgba(79,163,209,0.065) 0, transparent 420px),
+                linear-gradient(90deg, rgba(56,178,172,0.045), transparent 34%, transparent 68%, rgba(232,168,56,0.025)),
+                repeating-linear-gradient(-45deg, rgba(255,255,255,0.026) 0, rgba(255,255,255,0.026) 1px, transparent 1px, transparent 13px);
             background-attachment: fixed;
             overflow-x: hidden;
         }
@@ -65,117 +60,27 @@
             text-decoration: none;
         }
 
-        .ui-icon {
-            width: 22px;
-            min-width: 22px;
-            height: 22px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            line-height: 1;
-            font-weight: 600;
-            letter-spacing: 0;
+        img {
+            max-width: 100%;
         }
 
-        .ui-icon::before {
-            content: attr(data-icon);
-        }
-
-        .site-shell {
+        .page {
             min-height: 100vh;
-            display: block;
         }
 
-        .sidebar {
-            display: none;
-        }
-
-        .sidebar-logo {
-            width: 48px;
-            height: 48px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--surface);
-            margin-bottom: 16px;
-        }
-
-        .sidebar-logo img {
-            width: 38px;
-            height: 31px;
-            object-fit: contain;
-            filter: invert(1);
-        }
-
-        .side-nav {
-            display: grid;
-            gap: 8px;
-            width: 100%;
-        }
-
-        .side-nav a {
-            width: 48px;
-            height: 44px;
-            margin: 0 auto;
-            border-radius: 10px;
-            color: var(--fg2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        .side-nav a:hover,
-        .side-nav a.active {
-            color: var(--fg);
-            background: color-mix(in srgb, var(--accent-teal) 14%, transparent);
-            box-shadow:
-                inset 0 0 0 1px color-mix(in srgb, var(--accent-teal) 38%, transparent),
-                0 8px 18px rgba(56,178,172,0.1);
-        }
-
-        .side-nav a.active::before {
-            content: "";
-            position: absolute;
-            left: 5px;
-            width: 3px;
-            height: 20px;
-            border-radius: 2px;
-            background: var(--accent-teal);
-            box-shadow: 0 0 12px rgba(56,178,172,0.64);
-        }
-
-        .sidebar-bottom {
-            margin-top: auto;
-            color: var(--fg3);
-            writing-mode: vertical-rl;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            letter-spacing: 0;
-        }
-
-        .main {
-            min-width: 0;
-        }
-
-        .topbar {
+        .site-header {
             position: sticky;
             top: 0;
-            z-index: 10;
-            min-height: 68px;
+            z-index: 30;
+            min-height: 72px;
             border-bottom: 1px solid var(--border);
             background: color-mix(in srgb, #000000 82%, transparent);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(18px);
         }
 
-        .topbar-inner {
+        .nav-shell {
             width: min(var(--max), calc(100% - 56px));
-            min-height: 68px;
+            min-height: 72px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: auto minmax(0, 1fr) auto;
@@ -183,28 +88,26 @@
             gap: 28px;
         }
 
-        .brand-lockup {
-            display: flex;
+        .brand {
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
             min-width: 0;
         }
 
-        .brand-lockup img {
-            width: 128px;
+        .brand img {
+            width: 132px;
             height: auto;
             filter: invert(1);
         }
 
-        .topbar-links {
+        .nav-links {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             gap: 6px;
-            min-width: 0;
         }
 
-        .topbar-links a {
+        .nav-links a {
             min-height: 34px;
             display: inline-flex;
             align-items: center;
@@ -216,18 +119,18 @@
             transition: color 0.16s ease, background 0.16s ease;
         }
 
-        .topbar-links a:hover {
+        .nav-links a:hover {
             color: var(--fg);
-            background: color-mix(in srgb, var(--accent-teal) 12%, transparent);
+            background: rgba(56,178,172,0.12);
         }
 
-        .topbar-meta {
+        .nav-status {
             display: flex;
             align-items: center;
             gap: 10px;
             color: var(--fg2);
-            font-size: 12px;
             font-family: var(--font-mono);
+            font-size: 12px;
         }
 
         .status-dot {
@@ -235,27 +138,34 @@
             height: 9px;
             border-radius: 50%;
             background: var(--accent-teal);
-            box-shadow: 0 0 14px rgba(56,178,172,0.75);
+            box-shadow: 0 0 18px rgba(56,178,172,0.75);
         }
 
-        .content {
+        .container {
             width: min(var(--max), calc(100% - 56px));
-            max-width: var(--max);
             margin: 0 auto;
         }
 
+        .section {
+            padding: 104px 0;
+            border-top: 1px solid var(--border);
+            scroll-margin-top: 90px;
+        }
+
         .hero {
-            min-height: calc(100vh - 68px);
+            min-height: min(760px, calc(100svh - 72px));
             display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.78fr);
+            grid-template-columns: minmax(0, 1.02fr) minmax(390px, 0.78fr);
             align-items: center;
             gap: 58px;
-            padding: 92px 0 88px;
+            padding: 82px 0 74px;
         }
 
         .hero > *,
         .section-head > *,
-        .product-panel > * {
+        .mission-band > *,
+        .product-panel > *,
+        .closing-panel > * {
             min-width: 0;
         }
 
@@ -279,12 +189,33 @@
         }
 
         h1 {
-            max-width: 900px;
+            max-width: 920px;
             margin-top: 22px;
-            font-size: clamp(58px, 7.2vw, 106px);
+            font-size: clamp(58px, 7.4vw, 108px);
             line-height: 0.92;
             font-weight: 800;
             letter-spacing: 0;
+        }
+
+        h1 span {
+            display: block;
+        }
+
+        h2 {
+            margin-top: 12px;
+            font-size: clamp(34px, 4.6vw, 58px);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.15;
+        }
+
+        p {
+            color: var(--fg2);
         }
 
         .hero-copy {
@@ -292,278 +223,230 @@
             margin-top: 24px;
             color: var(--fg2);
             font-size: 18px;
-            line-height: 1.65;
+            line-height: 1.68;
         }
 
         .hero-actions {
-            margin-top: 30px;
+            margin-top: 32px;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
 
-        .theme-btn {
+        .btn {
             min-height: 44px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 9px;
-            padding: 0 16px;
+            padding: 0 17px;
             border-radius: 10px;
             border: 1px solid var(--border);
             background: var(--surface2);
             color: var(--fg);
-            font-family: var(--font-sans);
             font-size: 13px;
             font-weight: 700;
             transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
         }
 
-        .theme-btn:hover {
+        .btn:hover {
             transform: translateY(-2px);
             background: color-mix(in srgb, var(--surface2) 94%, #ffffff 6%);
             border-color: color-mix(in srgb, var(--accent-blue) 36%, var(--border));
         }
 
-        .theme-btn.primary {
-            background: linear-gradient(180deg, var(--accent-teal), color-mix(in srgb, var(--accent-teal) 68%, #000000 32%));
+        .btn.primary {
+            background: linear-gradient(180deg, var(--accent-teal), color-mix(in srgb, var(--accent-teal) 66%, #000000 34%));
             border-color: var(--accent-teal);
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset, 0 14px 28px rgba(56,178,172,0.18);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset, 0 16px 32px rgba(56,178,172,0.18);
         }
 
-        .hero-console {
-            min-width: 0;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
-                color-mix(in srgb, var(--surface) 92%, #000000 8%);
-            box-shadow: 0 24px 70px rgba(0,0,0,0.48);
-            overflow: hidden;
-        }
-
-        .console-head {
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            padding: 0 14px;
-            border-bottom: 1px solid var(--border);
-            background: #000000;
-        }
-
-        .console-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .console-title .ui-icon {
-            color: var(--accent-blue);
-        }
-
-        .console-chip {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            color: var(--accent-amber);
-            padding: 4px 7px;
-            border-radius: 5px;
-            border: 1px solid rgba(232,168,56,0.36);
-            background: rgba(232,168,56,0.09);
-        }
-
-        .hero-logo-field {
-            min-height: 320px;
-            display: grid;
-            place-items: center;
-            padding: 32px 26px;
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.025), transparent 42%),
-                var(--surface);
-        }
-
-        .hero-logo-field img {
-            width: min(100%, 440px);
-            height: auto;
-            filter: invert(1);
-            opacity: 0.96;
-        }
-
-        .metric-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            border-top: 1px solid var(--border);
-        }
-
-        .metric {
-            min-height: 108px;
-            padding: 16px;
-            border-right: 1px solid var(--border);
-            background: var(--surface2);
-        }
-
-        .metric:last-child {
-            border-right: none;
-        }
-
-        .metric b {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .metric span {
-            display: block;
-            color: var(--fg2);
-            font-size: 12px;
-            line-height: 1.45;
-        }
-
-        .section {
-            padding: 96px 0;
-            border-top: 1px solid var(--border);
-            scroll-margin-top: 86px;
-        }
-
-        .section-head {
-            display: grid;
-            grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
-            gap: 32px;
-            align-items: end;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            margin-top: 12px;
-            font-size: clamp(30px, 4vw, 48px);
-            line-height: 1.05;
-            font-weight: 800;
-            letter-spacing: 0;
-        }
-
-        .section-head p {
-            color: var(--fg2);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .module-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .module-card {
-            position: relative;
-            min-height: 230px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.035), transparent 45%),
-                var(--surface);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-            overflow: hidden;
-        }
-
-        .module-card::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 3px;
-            background: var(--card-accent, var(--accent-teal));
-        }
-
-        .module-card.live {
-            border-color: color-mix(in srgb, var(--card-accent, var(--accent-teal)) 40%, var(--border));
-            background:
-                linear-gradient(180deg, color-mix(in srgb, var(--card-accent, var(--accent-teal)) 9%, transparent), transparent 58%),
-                var(--surface);
-            box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.04),
-                0 12px 28px color-mix(in srgb, var(--card-accent, var(--accent-teal)) 12%, transparent);
-        }
-
-        .module-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        .module-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--card-accent, var(--accent-teal));
-            background: color-mix(in srgb, var(--card-accent, var(--accent-teal)) 13%, transparent);
-            border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent-teal)) 42%, transparent);
-        }
-
-        .module-card h3 {
-            margin-top: 18px;
-            font-size: 21px;
-            line-height: 1.18;
-        }
-
-        .module-card p {
-            margin-top: 11px;
-            color: var(--fg2);
-            font-size: 14px;
-            line-height: 1.62;
-        }
-
-        .pill {
+        .code {
+            min-width: 22px;
+            height: 22px;
             display: inline-flex;
             align-items: center;
-            min-height: 25px;
-            width: fit-content;
-            padding: 0 9px;
-            border-radius: 999px;
-            border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent-teal)) 45%, transparent);
-            background: color-mix(in srgb, var(--card-accent, var(--accent-teal)) 12%, transparent);
-            color: var(--card-accent, var(--accent-teal));
+            justify-content: center;
             font-family: var(--font-mono);
             font-size: 10px;
             font-weight: 600;
         }
 
-        .product-panel {
-            display: grid;
-            grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1fr);
-            gap: 18px;
-            padding: 18px;
-            border: 1px solid color-mix(in srgb, var(--product-accent, var(--accent-teal)) 28%, var(--border));
+        .institution-panel {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
             border-radius: 18px;
             background:
-                linear-gradient(135deg, color-mix(in srgb, var(--product-accent, var(--accent-teal)) 10%, transparent), transparent 42%),
+                linear-gradient(180deg, rgba(255,255,255,0.04), transparent 42%),
+                var(--surface);
+            box-shadow: 0 28px 80px rgba(0,0,0,0.46);
+        }
+
+        .panel-head {
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 0 16px;
+            border-bottom: 1px solid var(--border);
+            background: #000000;
+        }
+
+        .panel-head b {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .panel-chip {
+            color: var(--accent-amber);
+            border: 1px solid rgba(232,168,56,0.38);
+            background: rgba(232,168,56,0.08);
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .panel-logo {
+            min-height: 244px;
+            display: grid;
+            place-items: center;
+            padding: 32px 26px;
+            border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(circle at 50% 35%, rgba(56,178,172,0.12), transparent 42%),
+                var(--surface);
+        }
+
+        .panel-logo img {
+            width: min(100%, 410px);
+            filter: invert(1);
+            opacity: 0.96;
+        }
+
+        .panel-layers {
+            display: grid;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .panel-layer {
+            display: grid;
+            grid-template-columns: 62px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: var(--surface2);
+        }
+
+        .panel-layer small,
+        .status {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--fg3);
+            text-transform: uppercase;
+        }
+
+        .status.active {
+            color: var(--accent-teal);
+        }
+
+        .status.roadmap {
+            color: var(--accent-amber);
+        }
+
+        .status.future {
+            color: var(--fg3);
+        }
+
+        .mission-band {
+            display: grid;
+            grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+            gap: 54px;
+            align-items: start;
+            padding: 42px;
+            border: 1px solid color-mix(in srgb, var(--accent-teal) 24%, var(--border));
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(56,178,172,0.09), transparent 44%),
+                color-mix(in srgb, var(--surface) 90%, #000000 10%);
+        }
+
+        .mission-band p {
+            font-size: clamp(20px, 2.6vw, 34px);
+            line-height: 1.28;
+            color: var(--fg);
+            font-weight: 700;
+        }
+
+        .mission-band span {
+            display: block;
+            margin-top: 18px;
+            color: var(--fg2);
+            font-size: 16px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1fr);
+            gap: 36px;
+            align-items: end;
+            margin-bottom: 34px;
+        }
+
+        .section-head p {
+            font-size: 15px;
+            line-height: 1.72;
+        }
+
+        .product-grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        .product-panel {
+            --product-accent: var(--accent-teal);
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(430px, 1fr);
+            gap: 18px;
+            padding: 18px;
+            border: 1px solid color-mix(in srgb, var(--product-accent) 28%, var(--border));
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, color-mix(in srgb, var(--product-accent) 10%, transparent), transparent 42%),
                 linear-gradient(180deg, rgba(255,255,255,0.036), rgba(255,255,255,0.012)),
                 color-mix(in srgb, var(--surface) 92%, #000 8%);
             box-shadow: 0 24px 70px rgba(0,0,0,0.34);
         }
 
+        .product-copy,
+        .workflow-row,
+        .division-card,
+        .capability {
+            min-width: 0;
+        }
+
         .product-copy {
-            min-height: 390px;
+            min-height: 396px;
             position: relative;
             overflow: hidden;
-            border: 1px solid color-mix(in srgb, var(--product-accent, var(--accent-teal)) 24%, var(--border));
-            border-radius: 14px;
-            background:
-                linear-gradient(180deg, color-mix(in srgb, var(--product-accent, var(--accent-teal)) 12%, transparent), transparent 66%),
-                var(--surface);
-            padding: 34px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 34px;
+            border: 1px solid color-mix(in srgb, var(--product-accent) 24%, var(--border));
+            border-radius: 14px;
+            background:
+                linear-gradient(180deg, color-mix(in srgb, var(--product-accent) 12%, transparent), transparent 66%),
+                var(--surface);
         }
 
         .product-copy::after {
@@ -571,21 +454,41 @@
             position: absolute;
             inset: auto 28px 26px 28px;
             height: 1px;
-            background: linear-gradient(90deg, var(--product-accent, var(--accent-teal)), transparent);
+            background: linear-gradient(90deg, var(--product-accent), transparent);
             opacity: 0.65;
         }
 
-        .product-copy .large-logo {
-            width: min(100%, 250px);
-            height: auto;
-            margin-bottom: 30px;
+        .product-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 26px;
+        }
+
+        .product-logo {
+            width: min(100%, 220px);
             filter: invert(1);
-            opacity: 0.96;
+        }
+
+        .badge {
+            min-height: 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 9px;
+            border-radius: 999px;
+            border: 1px solid color-mix(in srgb, var(--badge-color, var(--accent-teal)) 46%, var(--border));
+            background: color-mix(in srgb, var(--badge-color, var(--accent-teal)) 12%, transparent);
+            color: var(--badge-color, var(--accent-teal));
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
         }
 
         .product-copy p {
             margin-top: 18px;
-            color: var(--fg2);
             font-size: 15px;
             line-height: 1.72;
         }
@@ -603,8 +506,8 @@
             align-items: center;
             padding: 0 10px;
             border-radius: 999px;
-            border: 1px solid color-mix(in srgb, var(--product-accent, var(--accent-teal)) 40%, var(--border));
-            background: color-mix(in srgb, var(--product-accent, var(--accent-teal)) 10%, transparent);
+            border: 1px solid color-mix(in srgb, var(--product-accent) 40%, var(--border));
+            background: color-mix(in srgb, var(--product-accent) 10%, transparent);
             color: var(--fg);
             font-family: var(--font-mono);
             font-size: 10px;
@@ -632,10 +535,10 @@
         .step {
             width: 44px;
             height: 44px;
-            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 10px;
             color: var(--fg);
             background: linear-gradient(180deg, var(--step-accent, var(--accent-blue)), color-mix(in srgb, var(--step-accent, var(--accent-blue)) 62%, #000000 38%));
             font-family: var(--font-mono);
@@ -644,31 +547,191 @@
         }
 
         .workflow-row h3 {
+            margin-bottom: 6px;
             font-size: 17px;
-            margin-bottom: 5px;
         }
 
         .workflow-row p {
-            color: var(--fg2);
             font-size: 13px;
-            line-height: 1.55;
+            line-height: 1.58;
         }
 
-        .capability-strip {
+        .vision-section {
+            background:
+                linear-gradient(180deg, rgba(56,178,172,0.04), rgba(0,0,0,0)),
+                transparent;
+        }
+
+        .architecture {
+            position: relative;
+            display: grid;
+            gap: 14px;
+            padding: 18px;
+            border: 1px solid color-mix(in srgb, var(--accent-teal) 22%, var(--border));
+            border-radius: 20px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.035), transparent 54%),
+                color-mix(in srgb, var(--surface) 92%, #000000 8%);
+            overflow: hidden;
+        }
+
+        .architecture::before {
+            content: "";
+            position: absolute;
+            left: 56px;
+            top: 46px;
+            bottom: 46px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-teal), rgba(232,168,56,0.55), rgba(255,255,255,0.12));
+        }
+
+        .layer-card {
+            --layer-accent: var(--accent-teal);
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 78px minmax(0, 0.8fr) minmax(280px, 1fr);
+            gap: 24px;
+            align-items: center;
+            min-height: 142px;
+            padding: 22px;
+            border: 1px solid color-mix(in srgb, var(--layer-accent) 28%, var(--border));
+            border-radius: 16px;
+            background:
+                linear-gradient(90deg, color-mix(in srgb, var(--layer-accent) 9%, transparent), transparent 56%),
+                var(--surface2);
+            transform: translateY(22px);
+            opacity: 0;
+            transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.2s ease;
+            transition-delay: var(--delay, 0s);
+        }
+
+        .layer-card.in-view {
+            opacity: var(--layer-opacity, 1);
+            transform: translateY(0);
+        }
+
+        .layer-card[data-state="roadmap"] {
+            --layer-opacity: 0.86;
+        }
+
+        .layer-card[data-state="future"] {
+            --layer-opacity: 0.68;
+            background:
+                linear-gradient(90deg, color-mix(in srgb, var(--layer-accent) 4%, transparent), transparent 58%),
+                color-mix(in srgb, var(--surface2) 72%, #000000 28%);
+        }
+
+        .layer-index {
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            color: var(--fg);
+            background: linear-gradient(180deg, var(--layer-accent), color-mix(in srgb, var(--layer-accent) 58%, #000 42%));
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 0 0 5px #08090b;
+        }
+
+        .layer-title small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--layer-accent);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .layer-title h3 {
+            font-size: clamp(24px, 3vw, 38px);
+        }
+
+        .layer-card p {
+            font-size: 14px;
+            line-height: 1.68;
+        }
+
+        .division-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .division-card {
+            --card-accent: var(--accent-teal);
+            position: relative;
+            min-height: 226px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            overflow: hidden;
+            border: 1px solid color-mix(in srgb, var(--card-accent) 24%, var(--border));
+            border-radius: 14px;
+            background:
+                linear-gradient(180deg, color-mix(in srgb, var(--card-accent) 7%, transparent), transparent 50%),
+                var(--surface);
+        }
+
+        .division-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 3px;
+            background: var(--card-accent);
+        }
+
+        .division-card h3 {
+            margin-top: 18px;
+        }
+
+        .division-card p {
+            margin-top: 11px;
+            font-size: 14px;
+            line-height: 1.62;
+        }
+
+        .division-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .division-mark {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            color: var(--card-accent);
+            background: color-mix(in srgb, var(--card-accent) 13%, transparent);
+            border: 1px solid color-mix(in srgb, var(--card-accent) 42%, transparent);
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .capability-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 14px;
         }
 
         .capability {
-            min-height: 154px;
+            --cap-accent: var(--accent-blue);
             position: relative;
+            min-height: 154px;
             overflow: hidden;
             padding: 20px;
             border-radius: 14px;
-            border: 1px solid color-mix(in srgb, var(--cap-accent, var(--accent-blue)) 22%, var(--border));
+            border: 1px solid color-mix(in srgb, var(--cap-accent) 22%, var(--border));
             background:
-                linear-gradient(180deg, color-mix(in srgb, var(--cap-accent, var(--accent-blue)) 8%, transparent), transparent 58%),
+                linear-gradient(180deg, color-mix(in srgb, var(--cap-accent) 8%, transparent), transparent 58%),
                 var(--surface);
         }
 
@@ -677,7 +740,7 @@
             position: absolute;
             inset: 0 0 auto 0;
             height: 2px;
-            background: var(--cap-accent, var(--accent-blue));
+            background: var(--cap-accent);
             opacity: 0.8;
         }
 
@@ -685,50 +748,99 @@
             display: flex;
             align-items: center;
             gap: 9px;
-            font-size: 15px;
             margin-bottom: 10px;
+            font-size: 15px;
         }
 
-        .capability .ui-icon {
-            color: var(--cap-accent, var(--accent-blue));
-            font-size: 10px;
+        .capability .code {
+            color: var(--cap-accent);
         }
 
         .capability span {
+            display: block;
             color: var(--fg2);
             font-size: 13px;
             line-height: 1.58;
         }
 
-        .footer {
+        .closing {
+            padding-bottom: 0;
+        }
+
+        .closing-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 28px;
+            align-items: center;
+            padding: 42px;
+            border: 1px solid color-mix(in srgb, var(--accent-teal) 26%, var(--border));
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(56,178,172,0.09), transparent 48%),
+                var(--surface);
+        }
+
+        .closing-panel h2 {
+            max-width: 840px;
+        }
+
+        .closing-panel p {
+            max-width: 780px;
+            margin-top: 18px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        footer {
+            margin-top: 70px;
             border-top: 1px solid var(--border);
             background: #000000;
         }
 
         .footer-inner {
-            width: min(var(--max), calc(100% - 40px));
-            min-height: 84px;
+            width: min(var(--max), calc(100% - 56px));
+            min-height: 92px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
             color: var(--fg3);
-            font-size: 12px;
             font-family: var(--font-mono);
+            font-size: 12px;
         }
 
-        .footer img {
-            width: 36px;
-            height: 29px;
-            object-fit: contain;
+        .footer-inner img {
+            width: 38px;
+            height: auto;
             filter: invert(1);
         }
 
-        @media (max-width: 1050px) {
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1080px) {
+            .nav-shell {
+                grid-template-columns: auto auto;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
             .hero,
             .section-head,
-            .product-panel {
+            .mission-band,
+            .product-panel,
+            .closing-panel {
                 grid-template-columns: 1fr;
             }
 
@@ -736,122 +848,111 @@
                 min-height: auto;
             }
 
-            .module-grid,
-            .capability-strip {
+            .division-grid,
+            .capability-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .topbar-inner {
-                grid-template-columns: auto auto;
+            .layer-card {
+                grid-template-columns: 68px minmax(0, 1fr);
             }
 
-            .topbar-links {
-                display: none;
+            .layer-card p {
+                grid-column: 2;
             }
         }
 
         @media (max-width: 720px) {
-            .main {
-                width: 100vw;
-                max-width: 100vw;
-                overflow: hidden;
-            }
-
-            .topbar-inner,
-            .content,
+            .nav-shell,
+            .container,
             .footer-inner {
-                width: calc(100vw - 56px);
-                max-width: var(--max);
+                width: 334px;
+                max-width: calc(100vw - 56px);
+                margin-left: 20px;
+                margin-right: 0;
             }
 
-            .topbar-meta {
+            .site-header {
+                min-height: 64px;
+            }
+
+            .nav-shell {
+                min-height: 64px;
+            }
+
+            .brand img {
+                width: 112px;
+            }
+
+            .nav-status {
                 display: none;
             }
 
-            .brand-lockup img {
-                width: 106px;
-            }
-
             .hero {
-                padding: 58px 0 62px;
-            }
-
-            .hero,
-            .hero > div,
-            h1,
-            .hero-copy,
-            .hero-console,
-            .hero-logo-field,
-            .section-head,
-            .product-panel {
-                width: 100%;
-                max-width: 100%;
+                padding: 58px 0 64px;
             }
 
             h1 {
-                font-size: clamp(42px, 13vw, 56px);
-                line-height: 0.96;
+                max-width: 100%;
+                font-size: clamp(38px, 11.5vw, 46px);
+                line-height: 0.95;
+                overflow-wrap: anywhere;
+            }
+
+            h2 {
+                font-size: clamp(32px, 10vw, 44px);
             }
 
             .hero-copy {
+                max-width: 34ch;
                 font-size: 16px;
                 line-height: 1.65;
-                max-width: 32ch;
-                overflow-wrap: break-word;
+                overflow-wrap: anywhere;
             }
 
             .hero-actions {
                 flex-direction: column;
-                max-width: 334px;
             }
 
-            .theme-btn {
+            .btn {
                 width: 100%;
             }
 
-            .hero-console {
-                max-width: 334px;
+            .institution-panel,
+            .product-panel,
+            .closing-panel,
+            .mission-band {
+                border-radius: 16px;
             }
 
-            .metric-grid,
-            .module-grid,
-            .capability-strip {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-logo-field {
+            .panel-logo {
                 min-height: 210px;
                 padding: 26px 18px;
             }
 
-            .hero-logo-field img {
-                width: min(100%, 280px);
+            .panel-logo img {
+                width: min(100%, 300px);
             }
 
-            .console-chip {
-                display: none;
+            .panel-layer {
+                grid-template-columns: 52px minmax(0, 1fr);
             }
 
-            .metric {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .metric:last-child {
-                border-bottom: none;
+            .panel-layer .status {
+                grid-column: 2;
             }
 
             .section {
-                padding: 64px 0;
+                padding: 72px 0;
             }
 
-            .workflow-row {
-                grid-template-columns: 1fr;
+            .mission-band,
+            .closing-panel {
+                padding: 28px;
             }
 
             .product-panel {
                 padding: 12px;
-                border-radius: 16px;
             }
 
             .product-copy {
@@ -859,371 +960,525 @@
                 padding: 26px;
             }
 
-            .product-copy .large-logo {
-                width: min(100%, 210px);
-            }
-
-            .footer-inner {
-                padding: 22px 0;
+            .product-topline {
                 align-items: flex-start;
                 flex-direction: column;
             }
+
+            .workflow-row {
+                grid-template-columns: 1fr;
+            }
+
+            .architecture {
+                padding: 12px;
+            }
+
+            .architecture::before {
+                left: 40px;
+            }
+
+            .layer-card {
+                grid-template-columns: 52px minmax(0, 1fr);
+                gap: 14px;
+                padding: 18px;
+            }
+
+            .layer-index {
+                width: 46px;
+                height: 46px;
+            }
+
+            .layer-card p {
+                grid-column: 1 / -1;
+            }
+
+            .division-grid,
+            .capability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 26px 0;
+            }
         }
 
-        @media (max-width: 420px) {
-            .topbar-inner,
-            .content,
+        @media (max-width: 374px) {
+            .nav-shell,
+            .container,
             .footer-inner {
-                width: min(334px, calc(100vw - 72px));
+                width: calc(100vw - 40px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+                animation: none !important;
             }
 
-            h1 {
-                font-size: clamp(38px, 12vw, 46px);
-            }
-
-            .hero-copy {
-                max-width: 32ch;
+            .reveal,
+            .layer-card {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="site-shell">
-        <aside class="sidebar" aria-label="Sogarjo navigation">
-            <a class="sidebar-logo" href="#top" aria-label="Sogarjo home">
-                <img src="icon_company.png" alt="">
-            </a>
-            <nav class="side-nav">
-                <a class="active" href="#top" aria-label="Home"><span class="ui-icon" data-icon="HM"></span></a>
-                <a href="#divisions" aria-label="Divisions"><span class="ui-icon" data-icon="DV"></span></a>
-                <a href="#hemalignc" aria-label="HemaLignC"><span class="ui-icon" data-icon="HX"></span></a>
-                <a href="#hemard" aria-label="HeMaRD"><span class="ui-icon" data-icon="RD"></span></a>
-                <a href="#capabilities" aria-label="Capabilities"><span class="ui-icon" data-icon="QC"></span></a>
-            </nav>
-            <div class="sidebar-bottom">SOGARJO</div>
-        </aside>
-
-        <main class="main" id="top">
-            <header class="topbar">
-                <div class="topbar-inner">
-                    <a class="brand-lockup" href="#top" aria-label="Sogarjo home">
-                        <img src="Logo_company.png" alt="Sogarjo">
-                    </a>
-                    <nav class="topbar-links" aria-label="Primary">
-                        <a href="#divisions">Products</a>
-                        <a href="#hemalignc">HemaLignC</a>
-                        <a href="#hemard">HeMaRD</a>
-                        <a href="#capabilities">Capabilities</a>
-                    </nav>
-                    <div class="topbar-meta">
-                        <span class="status-dot"></span>
-                        <span>Life sciences platform group</span>
-                    </div>
+    <div class="page">
+        <header class="site-header">
+            <div class="nav-shell">
+                <a class="brand" href="#top" aria-label="Sogarjo home">
+                    <img src="Logo_company.png" alt="Sogarjo">
+                </a>
+                <nav class="nav-links" aria-label="Primary">
+                    <a href="#mission">Mission</a>
+                    <a href="#products">Products</a>
+                    <a href="#vision">Five layers</a>
+                    <a href="#divisions">Divisions</a>
+                    <a href="#capabilities">Capabilities</a>
+                </nav>
+                <div class="nav-status">
+                    <span class="status-dot"></span>
+                    <span>Latin America oncology infrastructure</span>
                 </div>
-            </header>
+            </div>
+        </header>
 
-            <div class="content">
+        <main id="top">
+            <div class="container">
                 <section class="hero" aria-labelledby="hero-title">
-                    <div>
-                        <div class="kicker">Sogarjo Life Sciences</div>
-                        <h1 id="hero-title">Scientific software for oncology genomics.</h1>
+                    <div class="reveal">
+                        <div class="kicker">Integrated oncology institution</div>
+                        <h1 id="hero-title"><span>Built in Latin America.</span><span>Built for</span><span>the gap.</span></h1>
                         <p class="hero-copy">
-                            Sogarjo builds the product family behind HemaLignC and HeMaRD:
-                            molecular classification, MRD tracking, clonal evolution, clinical-style
-                            reporting, and reproducible compute environments for hematologic malignancy workflows.
+                            Sogarjo is building vertically integrated cancer infrastructure from the data layer upward:
+                            clinical genomics software, accessible molecular diagnostics, purpose-built instruments,
+                            therapeutic discovery, and research systems for underserved regions.
                         </p>
                         <div class="hero-actions">
-                            <a class="theme-btn primary" href="#hemalignc">
-                                <span class="ui-icon" data-icon="HL"></span>
-                                Explore HemaLignC
-                            </a>
-                            <a class="theme-btn" href="#hemard">
-                                <span class="ui-icon" data-icon="RD"></span>
-                                Explore HeMaRD
-                            </a>
-                            <a class="theme-btn" href="#divisions">
-                                <span class="ui-icon" data-icon="DV"></span>
-                                View divisions
-                            </a>
+                            <a class="btn primary" href="#products"><span class="code">01</span> Active products</a>
+                            <a class="btn" href="#vision"><span class="code">05</span> Long-term vision</a>
                         </div>
                     </div>
 
-                    <div class="hero-console" aria-label="Sogarjo system preview">
-                        <div class="console-head">
-                            <div class="console-title">
-                                <span class="ui-icon" data-icon="RUN"></span>
-                                <span>Sogarjo Platform</span>
-                            </div>
-                            <span class="console-chip">ACTIVE</span>
+                    <aside class="institution-panel reveal" aria-label="Sogarjo institutional build preview">
+                        <div class="panel-head">
+                            <b><span class="code">RUN</span> Sogarjo build stack</b>
+                            <span class="panel-chip">ACTIVE</span>
                         </div>
-                        <div class="hero-logo-field">
+                        <div class="panel-logo">
                             <img src="Logo_company.png" alt="Sogarjo">
                         </div>
-                        <div class="metric-grid">
-                            <div class="metric">
-                                <b>Life Sciences</b>
-                                <span>Genomics, transcriptomics, and oncology workflows.</span>
+                        <div class="panel-layers">
+                            <div class="panel-layer">
+                                <small>L1</small>
+                                <b>Software</b>
+                                <span class="status active">Active</span>
                             </div>
-                            <div class="metric">
-                                <b>Compute</b>
-                                <span>Cloud-ready assets, Docker images, WSL runtimes.</span>
+                            <div class="panel-layer">
+                                <small>L2</small>
+                                <b>Diagnostics</b>
+                                <span class="status roadmap">Roadmap</span>
                             </div>
-                            <div class="metric">
-                                <b>Intelligence</b>
-                                <span>Subtype, risk, and MRD dynamics built into analysis.</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section" id="divisions" aria-labelledby="divisions-title">
-                    <div class="section-head">
-                        <div>
-                            <div class="kicker">Operating areas</div>
-                            <h2 id="divisions-title">One visual system, multiple scientific products.</h2>
-                        </div>
-                        <p>
-                            Each division is built around a practical product surface: analysis,
-                            interpretation, infrastructure, validation, and implementation support for
-                            molecular medicine.
-                        </p>
-                    </div>
-
-                    <div class="module-grid">
-                        <a class="module-card live" href="#hemalignc" style="--card-accent: var(--accent-teal);">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="LS"></span></div>
-                                    <span class="pill">ACTIVE</span>
-                                </div>
-                                <h3>Sogarjo Life Sciences</h3>
-                                <p>Molecular software for genomics, transcriptomics, precision oncology, and clinical bioinformatics.</p>
-                            </div>
-                            <span class="pill">HemaLignC / HeMaRD</span>
-                        </a>
-
-                        <a class="module-card live" href="#hemard" style="--card-accent: var(--accent-blue);">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="RD"></span></div>
-                                    <span class="pill">ACTIVE</span>
-                                </div>
-                                <h3>HeMaRD MRD Tracking</h3>
-                                <p>Longitudinal minimal residual disease monitoring, variant tracking, CNV/SV integration, and clonal evolution views.</p>
-                            </div>
-                            <span class="pill">MRD PLATFORM</span>
-                        </a>
-
-                        <article class="module-card" style="--card-accent: var(--accent-violet);">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="AI"></span></div>
-                                    <span class="pill">ROADMAP</span>
-                                </div>
-                                <h3>Sogarjo Intelligence</h3>
-                                <p>AI systems, biomedical models, decision support, and scientific reasoning products.</p>
-                            </div>
-                        </article>
-
-                        <article class="module-card" style="--card-accent: var(--accent-amber);">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="CPU"></span></div>
-                                    <span class="pill">ROADMAP</span>
-                                </div>
-                                <h3>Sogarjo Compute</h3>
-                                <p>Execution environments for cloud storage, pipelines, orchestration, and high-performance workloads.</p>
-                            </div>
-                        </article>
-
-                        <article class="module-card" style="--card-accent: #ba7517;">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="DX"></span></div>
-                                    <span class="pill">PLANNED</span>
-                                </div>
-                                <h3>Sogarjo Diagnostics</h3>
-                                <p>Future assay systems, molecular testing workflows, and validation-focused software.</p>
-                            </div>
-                        </article>
-
-                        <article class="module-card" style="--card-accent: #d4537e;">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="REP"></span></div>
-                                    <span class="pill">PLANNED</span>
-                                </div>
-                                <h3>Sogarjo Clinical Systems</h3>
-                                <p>Hospital-facing reporting, workflow software, integrations, and clinical data management.</p>
-                            </div>
-                        </article>
-
-                        <article class="module-card" style="--card-accent: #6f67d8;">
-                            <div>
-                                <div class="module-top">
-                                    <div class="module-icon"><span class="ui-icon" data-icon="ED"></span></div>
-                                    <span class="pill">PLANNED</span>
-                                </div>
-                                <h3>Sogarjo Academy</h3>
-                                <p>Bioinformatics education, scientific onboarding, implementation support, and training programs.</p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <section class="section" id="hemalignc" aria-labelledby="hemalignc-title">
-                    <div class="product-panel" style="--product-accent: var(--accent-teal);">
-                        <div class="product-copy">
-                            <img class="large-logo" src="Logo_company.png" alt="Sogarjo">
-                            <div class="kicker">Classification platform</div>
-                            <h2 id="hemalignc-title">HemaLignC</h2>
-                            <p>
-                                HemaLignC is the first Sogarjo Life Sciences product: a hematologic
-                                malignancy platform for RNA-seq workflows, fusion detection, variant evidence,
-                                lineage prediction, molecular subtype classification, and automated reporting.
-                            </p>
-                            <div class="product-tags" aria-label="HemaLignC capabilities">
-                                <span>RNA-seq</span>
-                                <span>Fusions</span>
-                                <span>Subtype ML</span>
-                                <span>Reports</span>
+                            <div class="panel-layer">
+                                <small>L3-L5</small>
+                                <b>Instruments, therapeutics, research</b>
+                                <span class="status future">Future</span>
                             </div>
                         </div>
-
-                        <div class="workflow">
-                            <div class="workflow-row" style="--step-accent: var(--accent-teal);">
-                                <div class="step">01</div>
-                                <div>
-                                    <h3>Sample input</h3>
-                                    <p>Prepare sequencing files, metadata, and panels for pipeline execution.</p>
-                                </div>
-                            </div>
-                            <div class="workflow-row" style="--step-accent: var(--accent-blue);">
-                                <div class="step">02</div>
-                                <div>
-                                    <h3>Analysis</h3>
-                                    <p>Run fusion, variant, quantification, QC, and reproducibility checks.</p>
-                                </div>
-                            </div>
-                            <div class="workflow-row" style="--step-accent: #d4537e;">
-                                <div class="step">03</div>
-                                <div>
-                                    <h3>Prediction</h3>
-                                    <p>Apply lineage and molecular subtype classifiers to expression-derived evidence.</p>
-                                </div>
-                            </div>
-                            <div class="workflow-row" style="--step-accent: var(--accent-amber);">
-                                <div class="step">04</div>
-                                <div>
-                                    <h3>Reporting</h3>
-                                    <p>Generate structured outputs for interpretation, review, and clinical-style documentation.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section" id="hemard" aria-labelledby="hemard-title">
-                    <div class="product-panel" style="--product-accent: var(--accent-blue);">
-                        <div class="product-copy">
-                            <img class="large-logo" src="Logo_company.png" alt="Sogarjo">
-                            <div class="kicker">MRD platform</div>
-                            <h2 id="hemard-title">HeMaRD</h2>
-                            <p>
-                                HeMaRD is a hematologic minimal residual disease tracking platform for
-                                acute leukemias and hematologic malignancies. It combines ultra-low VAF
-                                SNV/indel detection, SNP/CNV/SV evidence, longitudinal clonal evolution,
-                                and rule-based clinical risk classification in one Dash interface.
-                            </p>
-                            <div class="product-tags" aria-label="HeMaRD capabilities">
-                                <span>Ultra-low VAF</span>
-                                <span>CNV / SV</span>
-                                <span>Clonal evolution</span>
-                                <span>Risk engine</span>
-                            </div>
-                        </div>
-
-                        <div class="workflow">
-                            <div class="workflow-row" style="--step-accent: var(--accent-blue);">
-                                <div class="step">01</div>
-                                <div>
-                                    <h3>MRD detection engine</h3>
-                                    <p>Uses Mutect2, HaplotypeCaller, and VarDict with force-calling of diagnostic index variants across follow-up timepoints.</p>
-                                </div>
-                            </div>
-                            <div class="workflow-row" style="--step-accent: var(--accent-teal);">
-                                <div class="step">02</div>
-                                <div>
-                                    <h3>Clonal evolution</h3>
-                                    <p>Tracks VAF trajectories with PyClone-VI-style clone clustering, clonal sweeps, relapse expansion, and subclonal MRD patterns.</p>
-                                </div>
-                            </div>
-                            <div class="workflow-row" style="--step-accent: #d4537e;">
-                                <div class="step">03</div>
-                                <div>
-                                    <h3>CNV and structural context</h3>
-                                    <p>Integrates copy-number and structural variant calls with SNV/indel evidence across diagnosis, response, and relapse samples.</p>
-                                </div>
-                            </div>
-                            <div class="workflow-row" style="--step-accent: var(--accent-amber);">
-                                <div class="step">04</div>
-                                <div>
-                                    <h3>Risk and longitudinal dashboard</h3>
-                                    <p>Applies ELN 2022 AML logic, B-ALL adverse-risk rules, IKZF1plus-style evidence, and per-timepoint MRD status reports.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section" id="capabilities" aria-labelledby="capabilities-title">
-                    <div class="section-head">
-                        <div>
-                            <div class="kicker">Shared platform capabilities</div>
-                            <h2 id="capabilities-title">Built around the work behind the interface.</h2>
-                        </div>
-                        <p>
-                            Shared platform assets keep analysis, MRD tracking, classification, reporting,
-                            cloud setup, and reference data moving through one product family.
-                        </p>
-                    </div>
-
-                    <div class="capability-strip">
-                        <div class="capability" style="--cap-accent: var(--accent-teal);">
-                            <b><span class="ui-icon" data-icon="FUS"></span> Fusion detection</b>
-                            <span>Multi-caller RNA-seq fusion workflows with organized output surfaces.</span>
-                        </div>
-                        <div class="capability" style="--cap-accent: var(--accent-blue);">
-                            <b><span class="ui-icon" data-icon="MRD"></span> MRD tracking</b>
-                            <span>Ultra-low VAF index mutation monitoring across diagnosis, follow-up, and relapse sequencing.</span>
-                        </div>
-                        <div class="capability" style="--cap-accent: #d4537e;">
-                            <b><span class="ui-icon" data-icon="CLN"></span> Clonal dynamics</b>
-                            <span>Longitudinal clone trajectories, relapse expansion, clonal sweeps, and subclonal development.</span>
-                        </div>
-                        <div class="capability" style="--cap-accent: var(--accent-amber);">
-                            <b><span class="ui-icon" data-icon="CNV"></span> CNV / SV evidence</b>
-                            <span>Copy-number and structural variant context for progression-associated genomic changes.</span>
-                        </div>
-                        <div class="capability" style="--cap-accent: var(--accent-violet);">
-                            <b><span class="ui-icon" data-icon="RISK"></span> Risk engines</b>
-                            <span>Rule-based ELN AML and B-ALL risk classification that updates as new variants emerge.</span>
-                        </div>
-                        <div class="capability" style="--cap-accent: var(--accent-amber);">
-                            <b><span class="ui-icon" data-icon="R2"></span> Cloud portability</b>
-                            <span>References, Docker images, WSL setup, and installer assets packaged for rebuilds.</span>
-                        </div>
-                    </div>
+                    </aside>
                 </section>
             </div>
 
-            <footer class="footer">
-                <div class="footer-inner">
-                    <img src="icon_company.png" alt="">
-                    <span>2026 Sogarjo. Scientific software for oncology genomics and MRD tracking.</span>
+            <section class="section" id="mission" aria-labelledby="mission-title">
+                <div class="container">
+                    <div class="mission-band reveal">
+                        <div>
+                            <div class="kicker">Founding thesis</div>
+                            <h2 id="mission-title">Cancer infrastructure cannot be imported into every clinical reality.</h2>
+                        </div>
+                        <p>
+                            Latin America has distinct cancer biology, distinct clinical constraints, and too little purpose-built validated oncology infrastructure.
+                            <span>Sogarjo exists to build that infrastructure layer by layer, from the data up, so underserved regions can generate, interpret, and act on their own molecular evidence.</span>
+                        </p>
+                    </div>
                 </div>
-            </footer>
+            </section>
+
+            <section class="section" id="products" aria-labelledby="products-title">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <div>
+                            <div class="kicker">Layer 1 - active software</div>
+                            <h2 id="products-title">The first layer is already being built.</h2>
+                        </div>
+                        <p>
+                            The active software layer creates the molecular analysis surface that later diagnostics,
+                            instruments, cohorts, and research programs can feed back into.
+                        </p>
+                    </div>
+
+                    <div class="product-grid">
+                        <article class="product-panel reveal" style="--product-accent: var(--accent-teal);">
+                            <div class="product-copy">
+                                <div class="product-topline">
+                                    <img class="product-logo" src="Logo_company.png" alt="Sogarjo">
+                                    <span class="badge" style="--badge-color: var(--accent-teal);">Active</span>
+                                </div>
+                                <div class="kicker">HemaLignC</div>
+                                <h2>RNA-seq classification and reporting for hematologic malignancies.</h2>
+                                <p>
+                                    HemaLignC supports RNA-seq analysis, fusion detection, molecular subtype classification,
+                                    lineage prediction, variant evidence review, and automated clinical-style reporting.
+                                </p>
+                                <div class="product-tags">
+                                    <span>RNA-seq</span>
+                                    <span>Fusion detection</span>
+                                    <span>Lineage prediction</span>
+                                    <span>Automated reports</span>
+                                </div>
+                            </div>
+                            <div class="workflow">
+                                <div class="workflow-row" style="--step-accent: var(--accent-teal);">
+                                    <div class="step">01</div>
+                                    <div>
+                                        <h3>Sample input</h3>
+                                        <p>Prepare sequencing files, metadata, panels, and reference assets for reproducible pipeline execution.</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-row" style="--step-accent: var(--accent-blue);">
+                                    <div class="step">02</div>
+                                    <div>
+                                        <h3>Analysis</h3>
+                                        <p>Run fusion, variant, expression, quantification, QC, and review workflows for hematologic malignancy cohorts.</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-row" style="--step-accent: var(--accent-pink);">
+                                    <div class="step">03</div>
+                                    <div>
+                                        <h3>Prediction</h3>
+                                        <p>Apply lineage and molecular subtype classifiers to expression-derived and variant-supported evidence.</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-row" style="--step-accent: var(--accent-amber);">
+                                    <div class="step">04</div>
+                                    <div>
+                                        <h3>Reporting</h3>
+                                        <p>Generate structured outputs for interpretation, review, and clinical-style documentation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="product-panel reveal" style="--product-accent: var(--accent-blue);">
+                            <div class="product-copy">
+                                <div class="product-topline">
+                                    <img class="product-logo" src="Logo_company.png" alt="Sogarjo">
+                                    <span class="badge" style="--badge-color: var(--accent-blue);">Active</span>
+                                </div>
+                                <div class="kicker">HeMaRD</div>
+                                <h2>DNA-seq MRD tracking and clonal evolution for acute leukemias.</h2>
+                                <p>
+                                    HeMaRD combines ultra-low VAF variant detection, longitudinal MRD tracking,
+                                    CNV/SV integration, clonal evolution, and rule-based risk auto-classification
+                                    for acute leukemias and hematologic malignancies.
+                                </p>
+                                <div class="product-tags">
+                                    <span>Mutect2</span>
+                                    <span>VarDict</span>
+                                    <span>PyClone-VI</span>
+                                    <span>ELN 2022</span>
+                                    <span>IKZF1plus</span>
+                                </div>
+                            </div>
+                            <div class="workflow">
+                                <div class="workflow-row" style="--step-accent: var(--accent-blue);">
+                                    <div class="step">01</div>
+                                    <div>
+                                        <h3>MRD detection engine</h3>
+                                        <p>Uses Mutect2, HaplotypeCaller, and VarDict with force-calling of diagnostic index variants across follow-up timepoints.</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-row" style="--step-accent: var(--accent-teal);">
+                                    <div class="step">02</div>
+                                    <div>
+                                        <h3>Clonal evolution</h3>
+                                        <p>Tracks VAF trajectories with PyClone-VI-style clone clustering, clonal sweeps, relapse expansion, and subclonal MRD patterns.</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-row" style="--step-accent: var(--accent-pink);">
+                                    <div class="step">03</div>
+                                    <div>
+                                        <h3>CNV and structural context</h3>
+                                        <p>Integrates copy-number and structural variant calls with SNV/indel evidence across diagnosis, response, and relapse samples.</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-row" style="--step-accent: var(--accent-amber);">
+                                    <div class="step">04</div>
+                                    <div>
+                                        <h3>Risk and longitudinal dashboard</h3>
+                                        <p>Applies ELN 2022 AML logic, B-ALL adverse-risk rules, IKZF1plus-style evidence, and per-timepoint MRD status reports.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section vision-section" id="vision" aria-labelledby="vision-title">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <div>
+                            <div class="kicker">The five-layer build</div>
+                            <h2 id="vision-title">Software is the first layer, not the final ambition.</h2>
+                        </div>
+                        <p>
+                            Sogarjo is structured as a long-term institutional build. Each layer creates data,
+                            standards, tools, and capacity that make the next layer possible.
+                        </p>
+                    </div>
+
+                    <div class="architecture" aria-label="Sogarjo five-layer institutional architecture">
+                        <article class="layer-card" data-state="active" style="--layer-accent: var(--accent-teal); --delay: 0s;">
+                            <div class="layer-index">L1</div>
+                            <div class="layer-title">
+                                <small>Active</small>
+                                <h3>Software</h3>
+                            </div>
+                            <p>HemaLignC and HeMaRD create the clinical genomics operating layer: RNA-seq classification, DNA-seq MRD tracking, reporting, cohort organization, and reproducible analysis.</p>
+                        </article>
+
+                        <article class="layer-card" data-state="roadmap" style="--layer-accent: var(--accent-amber); --delay: 0.08s;">
+                            <div class="layer-index">L2</div>
+                            <div class="layer-title">
+                                <small>Roadmap</small>
+                                <h3>Diagnostics</h3>
+                            </div>
+                            <p>Validated molecular panels, affordable reagent workflows, and assay standardization for institutions in resource-limited settings that cannot access existing commercial solutions.</p>
+                        </article>
+
+                        <article class="layer-card" data-state="future" style="--layer-accent: var(--accent-blue); --delay: 0.16s;">
+                            <div class="layer-index">L3</div>
+                            <div class="layer-title">
+                                <small>Future</small>
+                                <h3>Instruments</h3>
+                            </div>
+                            <p>Purpose-built cancer detection hardware designed from scratch for the clinical reality of Latin American hospitals, not as copies of Western devices.</p>
+                        </article>
+
+                        <article class="layer-card" data-state="future" style="--layer-accent: var(--accent-pink); --delay: 0.24s;">
+                            <div class="layer-index">L4</div>
+                            <div class="layer-title">
+                                <small>Future</small>
+                                <h3>Drug Development</h3>
+                            </div>
+                            <p>Translational research using proprietary cohort data, molecular classifiers, and MRD tracking to identify therapeutic targets specific to underrepresented cancer biology.</p>
+                        </article>
+
+                        <article class="layer-card" data-state="future" style="--layer-accent: var(--accent-green); --delay: 0.32s;">
+                            <div class="layer-index">L5</div>
+                            <div class="layer-title">
+                                <small>Future</small>
+                                <h3>Research Infrastructure</h3>
+                            </div>
+                            <p>Independent labs, fellowships, and a self-sustaining scientific network that feeds discovery back into software, diagnostics, instruments, and therapeutics.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="divisions" aria-labelledby="divisions-title">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <div>
+                            <div class="kicker">Institutional divisions</div>
+                            <h2 id="divisions-title">One institution, multiple build surfaces.</h2>
+                        </div>
+                        <p>
+                            Each division is part of the same system: active products, roadmap capabilities,
+                            and future institutional layers designed to reinforce one another.
+                        </p>
+                    </div>
+
+                    <div class="division-grid">
+                        <article class="division-card reveal" style="--card-accent: var(--accent-teal);">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">LS</div>
+                                    <span class="badge" style="--badge-color: var(--accent-teal);">Active</span>
+                                </div>
+                                <h3>Sogarjo Life Sciences</h3>
+                                <p>HemaLignC and HeMaRD: active clinical genomics software for classification, MRD tracking, and reporting.</p>
+                            </div>
+                        </article>
+
+                        <article class="division-card reveal" style="--card-accent: var(--accent-amber);">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">DX</div>
+                                    <span class="badge" style="--badge-color: var(--accent-amber);">Roadmap</span>
+                                </div>
+                                <h3>Sogarjo Diagnostics</h3>
+                                <p>Molecular panels, affordable reagent workflows, and assay standards for resource-limited oncology institutions.</p>
+                            </div>
+                        </article>
+
+                        <article class="division-card reveal" style="--card-accent: var(--accent-blue);">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">HW</div>
+                                    <span class="badge" style="--badge-color: var(--accent-blue);">Future</span>
+                                </div>
+                                <h3>Sogarjo Instruments</h3>
+                                <p>Purpose-built cancer detection hardware engineered around Latin American hospital constraints.</p>
+                            </div>
+                        </article>
+
+                        <article class="division-card reveal" style="--card-accent: var(--accent-pink);">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">TX</div>
+                                    <span class="badge" style="--badge-color: var(--accent-pink);">Future</span>
+                                </div>
+                                <h3>Sogarjo Therapeutics</h3>
+                                <p>Drug development programs emerging from cohort data, molecular classifiers, and MRD-linked disease biology.</p>
+                            </div>
+                        </article>
+
+                        <article class="division-card reveal" style="--card-accent: #7da6d9;">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">AI</div>
+                                    <span class="badge" style="--badge-color: #7da6d9;">Roadmap</span>
+                                </div>
+                                <h3>Sogarjo Intelligence</h3>
+                                <p>AI decision support, biomedical models, cohort interpretation, and scientific reasoning systems.</p>
+                            </div>
+                        </article>
+
+                        <article class="division-card reveal" style="--card-accent: var(--accent-green);">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">RS</div>
+                                    <span class="badge" style="--badge-color: var(--accent-green);">Future</span>
+                                </div>
+                                <h3>Sogarjo Research</h3>
+                                <p>Independent laboratories, fellows, international collaborations, and a discovery network rooted in the region.</p>
+                            </div>
+                        </article>
+
+                        <article class="division-card reveal" style="--card-accent: #b8a96a;">
+                            <div>
+                                <div class="division-top">
+                                    <div class="division-mark">ED</div>
+                                    <span class="badge" style="--badge-color: #b8a96a;">Planned</span>
+                                </div>
+                                <h3>Sogarjo Academy</h3>
+                                <p>Education, training, implementation support, and local technical capacity for clinical genomics programs.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <div>
+                            <div class="kicker">Shared capabilities</div>
+                            <h2 id="capabilities-title">The same evidence layer supports every future layer.</h2>
+                        </div>
+                        <p>
+                            The active software layer is designed to become the shared infrastructure for assays,
+                            cohorts, models, clinical interpretation, and research programs.
+                        </p>
+                    </div>
+
+                    <div class="capability-grid">
+                        <div class="capability reveal" style="--cap-accent: var(--accent-teal);">
+                            <b><span class="code">FUS</span> Fusion detection</b>
+                            <span>RNA-seq fusion workflows with organized review surfaces for hematologic malignancy interpretation.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: var(--accent-blue);">
+                            <b><span class="code">MRD</span> MRD tracking</b>
+                            <span>Ultra-low VAF index mutation monitoring across diagnosis, follow-up, and relapse sequencing.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: var(--accent-pink);">
+                            <b><span class="code">CLN</span> Clonal dynamics</b>
+                            <span>Longitudinal clone trajectories, relapse expansion, clonal sweeps, and subclonal development.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: var(--accent-amber);">
+                            <b><span class="code">CNV</span> CNV / SV evidence</b>
+                            <span>Copy-number and structural variant context for progression-associated genomic changes.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: #7da6d9;">
+                            <b><span class="code">RISK</span> Risk engines</b>
+                            <span>Rule-based ELN AML and B-ALL risk classification that updates as new variants emerge.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: var(--accent-green);">
+                            <b><span class="code">COH</span> Cohort infrastructure</b>
+                            <span>Structured longitudinal datasets that connect molecular findings to clinical course and outcomes.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: var(--accent-teal);">
+                            <b><span class="code">POP</span> Population-specific genomics</b>
+                            <span>Infrastructure for underrepresented genomic populations that are not well captured by imported reference systems.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: var(--accent-amber);">
+                            <b><span class="code">LATAM</span> Latin American cancer biology</b>
+                            <span>Tools and cohorts oriented around the biology, access constraints, and care pathways of the region.</span>
+                        </div>
+                        <div class="capability reveal" style="--cap-accent: #b8a96a;">
+                            <b><span class="code">R2</span> Cloud portability</b>
+                            <span>References, Docker images, WSL setup, and installer assets packaged for reproducible rebuilds.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section closing" id="contact" aria-labelledby="closing-title">
+                <div class="container">
+                    <div class="closing-panel reveal">
+                        <div>
+                            <div class="kicker">Closing principle</div>
+                            <h2 id="closing-title">Every layer we build is infrastructure someone in Latin America does not have to build from scratch.</h2>
+                            <p>
+                                Sogarjo is open to scientific collaborators, clinical partners, and institutions building serious oncology capacity for underserved populations.
+                            </p>
+                        </div>
+                        <a class="btn primary" href="mailto:95jgs95@gmail.com"><span class="code">COL</span> Collaborate</a>
+                    </div>
+                </div>
+            </section>
         </main>
+
+        <footer>
+            <div class="footer-inner">
+                <img src="icon_company.png" alt="">
+                <span>2026 Sogarjo. Integrated oncology infrastructure from Latin America.</span>
+            </div>
+        </footer>
     </div>
+
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+        document.querySelectorAll('.reveal, .layer-card').forEach((element) => {
+            revealObserver.observe(element);
+        });
+    </script>
 </body>
 </html>
